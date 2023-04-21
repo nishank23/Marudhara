@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>235843900789-a9kgq9u8td8uifp2a5t7dupalrqo7gma.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.235843900789-a9kgq9u8td8uifp2a5t7dupalrqo7gma</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAH3wufVx8WesLFyG2INUJHBi8krMAtsTY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>235843900789</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.arshita.marudhara</string>
+	<key>PROJECT_ID</key>
+	<string>marudha-d2d85</string>
+	<key>STORAGE_BUCKET</key>
+	<string>marudha-d2d85.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:235843900789:ios:b344339a3df1b45403af3c</string>
+</dict>
+</plist>

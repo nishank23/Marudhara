@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235843900789",
+    "project_id": "marudha-d2d85",
+    "storage_bucket": "marudha-d2d85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235843900789:android:d634eaac1874264a03af3c",
+        "android_client_info": {
+          "package_name": "com.arshita.marudhara"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235843900789-crgktsejm3af31qeusma0hou0li557kb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6pxZ_j4RquIDo5A9l5O7G62LofRxrLTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235843900789-crgktsejm3af31qeusma0hou0li557kb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
