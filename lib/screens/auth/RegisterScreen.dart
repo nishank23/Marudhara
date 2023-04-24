@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -92,12 +93,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const Spacer(),
                 MyButton(
                   mycallback: () {
-                    if (emailcontroller.text.isEmpty) {
+                    if (namecontroller.text.isEmpty) {
+                      Fluttertoast.showToast(msg: "Name can't be empty");
+                    } else if (emailcontroller.text.isEmpty) {
                       Fluttertoast.showToast(msg: "Email can't be empty");
                     } else if (passwordcontroller.text.isEmpty) {
                       Fluttertoast.showToast(msg: "Password can't be empty");
-                    } else if (namecontroller.text.isEmpty) {
-                      Fluttertoast.showToast(msg: "Name can't be empty");
                     } else {
                       registerWithEmailAndPassword(
                           emailcontroller.text, passwordcontroller.text);
@@ -121,6 +122,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         email: email,
         password: password,
       );
+      storeUserData(
+          userCredential.user!.uid, namecontroller.text.toString(), email);
       Fluttertoast.showToast(msg: "User registered succesfully");
       Get.off(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {
@@ -128,4 +131,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
       // Handle errors during registration
     }
   }
+}
+
+void storeUserData(String userId, String name, String email) {
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
+
+  database
+      .ref()
+      .child("users")
+      .child(userId)
+      .set({"name": name, "email": email});
 }

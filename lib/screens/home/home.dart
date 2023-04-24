@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marudhara/screens/Checkout/checkout.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../helper/Themes.dart';
@@ -17,8 +18,8 @@ class homeScreen extends StatefulWidget {
 class _homeScreenState extends State<homeScreen> {
   final screens = [
     const hometab(),
-    const HistoryScreen(),
     const Notifications(),
+    const CheckOutScreen(),
     const profile()
   ];
   int _selectedIndex = 0;
@@ -79,16 +80,16 @@ class _homeScreenState extends State<homeScreen> {
                   icon: Icon(Icons.home_filled, size: 21, color: Colors.grey),
                   label: 'Home'),
               BottomNavigationBarItem(
-                  activeIcon: Icon(Icons.access_time_filled_rounded,
-                      size: 21, color: primaryColor),
-                  icon: Icon(Icons.access_time_filled_rounded,
-                      size: 21, color: Colors.grey),
-                  label: 'History'),
-              BottomNavigationBarItem(
                   activeIcon:
                       Icon(Icons.notifications, size: 21, color: primaryColor),
                   icon: Icon(Icons.notifications, size: 21, color: Colors.grey),
-                  label: 'Explore'),
+                  label: 'Notifications'),
+              BottomNavigationBarItem(
+                  activeIcon: Icon(Icons.shopping_bag_rounded,
+                      size: 21, color: primaryColor),
+                  icon: Icon(Icons.shopping_bag_rounded,
+                      size: 21, color: Colors.grey),
+                  label: 'Cart'),
               BottomNavigationBarItem(
                   activeIcon: Icon(Icons.person, size: 25, color: primaryColor),
                   icon: Icon(Icons.person, size: 25, color: Colors.grey),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -87,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextSpan(
                         text: 'Dont have an account? ',
                         style: myRegularFont.copyWith(
-                            color: Color(0xffA1A1A1).withOpacity(.7),
+                            color: const Color(0xffA1A1A1).withOpacity(.7),
                             fontSize: 14),
                       ),
                       TextSpan(
@@ -98,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontSize: 14),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Get.to(() => RegisterScreen());
+                              Get.to(() => const RegisterScreen());
                             }),
                     ],
                   ),
@@ -130,12 +131,8 @@ class _LoginScreenState extends State<LoginScreen> {
         email: email,
         password: password,
       );
+      updateUserData(userCredential.user!.uid, email);
 
-      final usersRef = FirebaseDatabase.instance.ref().child('users');
-
-      final userNode = usersRef.child(userCredential.user!.uid.toString());
-      await userNode
-          .set({'email': email, 'logged_in': DateTime.now().toString()});
       Fluttertoast.showToast(msg: "User Login succesfully");
 
       Get.off(() => const homeScreen());
@@ -146,4 +143,16 @@ class _LoginScreenState extends State<LoginScreen> {
       Fluttertoast.showToast(msg: e.message.toString());
     }
   }
+}
+
+Future<void> updateUserData(String userId, String email) async {
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  FirebaseAuth auth = FirebaseAuth.instance;
+  final fcmToken = await FirebaseMessaging.instance.getToken();
+
+  database.ref().child("users").child(userId).update({
+    "email": email,
+    "fcmtoken": fcmToken,
+    "logged_id": DateTime.now().toString()
+  });
 }
